@@ -1,0 +1,100 @@
+﻿<Window x:Class="LibrariesManageSystem.SystemWindows.BooksManagement.Management"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="图书管理"
+        Height="600" Width="1000"
+        MinHeight="600" MinWidth="1000">
+    <Window.Background>
+        <ImageBrush
+            Opacity="0.9"
+            ImageSource="D:\MyWorkStation\C#JetBrains\LibrariesManageSystem\images\IMG20200112171947.jpg" Stretch="Fill" />
+    </Window.Background>
+    <Grid>
+        <Grid VerticalAlignment="Top" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Left">
+                <Button x:Name="ButtonManagementBackTo"
+                        Click="ButtonManagementBackTo_OnClick"
+                        Style="{StaticResource MaterialDesignPaperDarkButton}"
+                    Content="返回"
+                        Width="100px"
+                    Margin="10,5"
+                    Padding="10,5"
+                    HorizontalAlignment="Stretch"/>
+            </StackPanel>
+        </Grid>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical"
+                        Width="300px">
+                <TextBlock FontSize="25px"
+                           TextAlignment="Center"
+                           Padding="0, 80, 0, 50">
+                    图书管理
+                </TextBlock>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom"
+                            VerticalAlignment="Center"
+                            Orientation="Vertical">
+                <Button x:Name="ButtonBooksView"
+                        Click="ButtonBooksView_OnClick"
+                        Style="{StaticResource MaterialDesignPaperDarkButton}"
+                        Content="所有图书信息"
+                        Margin="10,5"
+                        Padding="10,5"
+                        Width="150px"
+                        HorizontalAlignment="Stretch"/>
+                <Button x:Name="ButtonAddBooks"
+                        Click="ButtonAddBooks_OnClick"
+                        Style="{StaticResource MaterialDesignPaperDarkButton}"
+                        Content="添加图书信息"
+                        Margin="10,5"
+                        Padding="10,5"
+                        Width="150px"
+                        HorizontalAlignment="Stretch"/>
+                    <Button x:Name="ButtonModifyBooks"
+                            Click="ButtonModifyBooks_OnClick"
+                            Style="{StaticResource MaterialDesignPaperDarkButton}"
+                        Content="图书信息修改"
+                        Margin="10,5"
+                        Padding="10,5"
+                        Width="150px"
+                        HorizontalAlignment="Stretch"/>
+                    <Button x:Name="ButtonDeleteBooks"
+                            Click="ButtonDeleteBooks_OnClick"
+                            Style="{StaticResource MaterialDesignPaperDarkButton}"
+                            Content="图书信息删除"
+                            Margin="10,5"
+                            Padding="10,5"
+                            Width="150px"
+                            HorizontalAlignment="Stretch"/>
+                    <Button x:Name="ButtonAddCategory"
+                            Click="ButtonAddCategory_OnClick"
+                            Style="{StaticResource MaterialDesignPaperDarkButton}"
+                        Content="添加图书类别"
+                        Margin="10,5"
+                        Padding="10,5"
+                        Width="150px"
+                        HorizontalAlignment="Stretch"/>
+                    <Button x:Name="ButtonCategoryModification"
+                            Click="ButtonCategoryModification_OnClick"
+                            Style="{StaticResource MaterialDesignPaperDarkButton}"
+                            Content="修改图书类别"
+                            Margin="10,5"
+                            Padding="10,5"
+                            Width="150px"
+                            HorizontalAlignment="Stretch"/>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>

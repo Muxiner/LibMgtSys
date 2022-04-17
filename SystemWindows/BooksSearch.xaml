@@ -1,0 +1,227 @@
+﻿<Window x:Class="LibrariesManageSystem.SystemWindow.BooksSearch"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="图书查询"
+        Height="650" Width="1000"
+        MinHeight="650" MinWidth="1000">
+    <Window.Background>
+        <ImageBrush
+            Opacity="0.9"
+            ImageSource="D:\MyWorkStation\C#JetBrains\LibrariesManageSystem\images\IMG20200112171947.jpg" Stretch="Fill" />
+    </Window.Background>
+    <Grid>
+        <Grid VerticalAlignment="Top" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Left">
+                <Button x:Name="ButtonBackToMain"
+                        Click="ButtonBackToMain_OnClick"
+                        Style="{StaticResource MaterialDesignPaperDarkButton}"
+                         Content="返回"
+                        Width="100px"
+                        Margin="10,5"
+                        Padding="10,5"
+                        HorizontalAlignment="Stretch"/>
+            </StackPanel>
+        </Grid>
+        <DockPanel>
+                <StackPanel DockPanel.Dock="Top"
+                            VerticalAlignment="Center"
+                            Orientation="Vertical"
+                            Width="300px">
+                    <TextBlock FontSize="25px"
+                                           TextAlignment="Center"
+                                           Padding="0, 40, 0, 30">
+                                    图书查询
+                                </TextBlock>
+                </StackPanel>
+            <StackPanel DockPanel.Dock="Top">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <ComboBox x:Name="ComboBoxSearchCategory"
+                        Margin="15,0,0,0"
+                        FontSize="15px"
+                        Width="120px"
+                        materialDesign:HintAssist.Hint="选择查询方式"
+                        materialDesign:HintAssist.Foreground="#190B00"
+                        Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBoxItem Content="书号"/>
+                        <ComboBoxItem Content="书名"/>
+                    </ComboBox>
+                    <TextBox x:Name="TextBoxSearch"
+                        Margin="15,0,0,0"
+                        FontSize="15px"
+                        Width="250px"
+                        materialDesign:HintAssist.Hint="输入需要搜索的内容"
+                        materialDesign:HintAssist.Foreground="#190B00"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        VerticalAlignment="Center" />
+                    <Button  x:Name="ButtonSearch"
+                             Click="ButtonSearch_OnClick"
+                             Style="{StaticResource MaterialDesignPaperDarkButton}"
+                        Content="查询"
+                        Margin="10,0"
+                        Padding="10,0"
+                        Width="150px"
+                        VerticalAlignment="Bottom"/>
+                </StackPanel>
+                <StackPanel DockPanel.Dock="Top">
+                    <Label HorizontalAlignment="Center"
+                           x:Name="LabelSearchTips"
+                           Width="220px"
+                           Height="20px"
+                           FontSize="10px"
+                           HorizontalContentAlignment="Right"></Label>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom"><TextBlock Height="10"/></StackPanel>
+            <StackPanel>
+                <Border
+                    Margin="100,10"
+                    Padding="20,10"
+                    CornerRadius="10">
+                    <Border.Background>
+                        <SolidColorBrush Color="White" Opacity=".6"/>
+                    </Border.Background> 
+                    
+                <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"
+                                Margin="0,0,0,10">
+                        <Border Background="Azure"
+                                Width="100px"
+                                Margin="0,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5">
+                                    <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="书号" MinHeight="25px"/>
+                                </Border>
+                        <Border Background="Azure"
+                                Margin="10,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5"
+                                BorderBrush="Black"
+                                BorderThickness="0,0,0, 2">
+                                    <Label 
+                                        x:Name="LabelBookNumber"
+                                        VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="500px" MinHeight="25px"/>
+                                </Border>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" 
+                                Margin="0,0,0,10">
+                        <Border Background="Azure"
+                                Width="100px"
+                                Margin="0,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5">
+                            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="书名"/>
+                        </Border>
+                        <Border Background="Azure"
+                                Margin="10,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5"
+                                BorderBrush="Black"
+                                BorderThickness="0,0,0, 2">
+                            <Label x:Name="LabelTitle" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="500px" MinHeight="25px"/>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Border Background="Azure"
+                                Width="100px"
+                                Margin="0,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5">
+                            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="类别"/>
+                        </Border>
+                        <Border Background="Azure"
+                                Margin="10,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5"
+                                BorderBrush="Black"
+                                BorderThickness="0,0,0, 2">
+                            <Label x:Name="LabelCategory" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="500px" MinHeight="25px"/>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Border Background="Azure"
+                                Width="100px"
+                                Margin="0,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5">
+                            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="作者"/>
+                        </Border>
+                        <Border Background="Azure"
+                                Margin="10,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5"
+                                BorderBrush="Black"
+                                BorderThickness="0,0,0, 2">
+                            <Label x:Name="LabelAuthor" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="500px" MinHeight="25px"/>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Border Background="Azure"
+                                Width="100px"
+                                Margin="0,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5">
+                            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="简介"/>
+                        </Border>
+                        <Border Background="Azure"
+                                Margin="10,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5"
+                                BorderBrush="Black"
+                                BorderThickness="0,0,0, 2">
+                            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                                   Width="500px" MinHeight="25px">
+                                <TextBlock x:Name="TextBlockDescription" TextWrapping="Wrap"/>
+                            </Label>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Border Background="Azure"
+                                Width="100px"
+                                Margin="0,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5">
+                            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="借阅次数"/>
+                        </Border>
+                        <Border Background="Azure"
+                                Margin="10,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5"
+                                BorderBrush="Black"
+                                BorderThickness="0,0,0, 2">
+                            <Label x:Name="LabelBorrowingNumber" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="500px" MinHeight="25px"/>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,0,0,10">
+                        <Border Background="Azure"
+                                Width="100px"
+                                Margin="0,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5">
+                            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="状态"/>
+                        </Border>
+                        <Border Background="Azure"
+                                Margin="10,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5"
+                                BorderBrush="Black"
+                                BorderThickness="0,0,0, 2">
+                            <Label x:Name="LabelStatus" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="500px" MinHeight="25px"/>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+                </Border>
+            </StackPanel>
+            
+        </DockPanel>
+    </Grid>
+</Window>

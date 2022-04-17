@@ -1,0 +1,121 @@
+﻿<Window x:Class="LibrariesManageSystem.SystemWindows.BooksManagement.CategoryAddiction"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        x:Name="WindowAddCategory"
+        Title="图书类别添加" Height="450" Width="800"
+        MinHeight="450" MinWidth="800"
+        MaxHeight="450" MaxWidth="800">
+    <Window.Background>
+        <ImageBrush
+            Opacity="0.9"
+            ImageSource="D:\MyWorkStation\C#JetBrains\LibrariesManageSystem\images\IMG20200112171947.jpg" Stretch="Fill" />
+    </Window.Background>
+    <Grid>
+        <Grid VerticalAlignment="Top" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Left">
+                <Button
+                    x:Name="ButtonAddCategoryBackTo"
+                    Click="ButtonAddCategoryBackTo_OnClick"
+                    Style="{StaticResource MaterialDesignPaperDarkButton}"
+                    Content="返回"
+                    Width="100px"
+                    Margin="10,5"
+                    Padding="10,5"
+                    HorizontalAlignment="Stretch"/>
+            </StackPanel>
+        </Grid>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical"
+                        Width="300px">
+                <TextBlock FontSize="25px"
+                           TextAlignment="Center"
+                           Padding="0, 50, 0, 10">
+                    添加图书类别
+                </TextBlock>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom"
+                        HorizontalAlignment="Center"
+                        Orientation="Horizontal"
+                        Margin="0,20">
+                <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                <TextBox x:Name="TextBoxCategory"
+                                         GotFocus="TextBoxCategory_OnGotFocus"
+                                        Margin="15,0,15,2"
+                                        FontSize="15px"
+                                        Width="250px"
+                                         Foreground="Azure"
+                                         materialDesign:TextFieldAssist.HasClearButton="True"
+                                        materialDesign:HintAssist.Hint="输入新增的图书类别"
+                                        materialDesign:HintAssist.Foreground="Azure"
+                                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                        VerticalAlignment="Center" />
+                                <Label HorizontalAlignment="Right"
+                                       x:Name="LabelCategoryDescription"
+                                       Width="200px"
+                                       Height="20px"
+                                       FontSize="10px"
+                                       Margin="0,0,16,0"
+                                       HorizontalContentAlignment="Right"></Label>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                <Button x:Name="ButtonAddCategory"
+                                        Click="ButtonAddCategory_OnClick"
+                                        Style="{StaticResource MaterialDesignPaperDarkButton}"
+                                    Content="添加"
+                                    Margin="10,0"
+                                    Padding="10,0"
+                                    VerticalAlignment="Bottom"/>
+                                <Label HorizontalAlignment="Center"
+                                       Width="200px"
+                                       Height="20px"
+                                       FontSize="10px"
+                                       HorizontalContentAlignment="Right"></Label>
+                            </StackPanel>
+                        </Grid>
+            </StackPanel>
+            <Border
+                Margin="100,0"
+                Padding="20,10"
+                CornerRadius="10">
+                <Border.Background>
+                    <SolidColorBrush Color="White" Opacity=".6"/>
+                </Border.Background>
+            <StackPanel>
+                <Button x:Name="ButtonLoadCategory"
+                        Click="ButtonLoadCategory_OnClick"
+                        Style="{StaticResource MaterialDesignOutlinedDarkButton}"
+                        Content="加载图书类别"
+                        Foreground="Black"/>
+                <ListView x:Name="ListViewCategory"
+                          MaxHeight="160"
+                          Margin="5"
+                          HorizontalContentAlignment="Center"
+                          IsEnabled="{Binding IsChecked, ElementName=EnableListBox}">
+                </ListView>
+            </StackPanel>
+            </Border>
+        </DockPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,187 @@
+﻿<Window x:Class="LibrariesManageSystem.SystemWindows.BooksManagement.BooksModification"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="图书信息修改" Height="480" Width="800">
+    <Window.Background>
+        <ImageBrush
+            Opacity="0.9"
+            ImageSource="D:\MyWorkStation\C#JetBrains\LibrariesManageSystem\images\IMG20200112171947.jpg" Stretch="Fill" />
+    </Window.Background>
+    <Grid>
+        <Grid VerticalAlignment="Top" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Left">
+                <Button x:Name="ButtonBookModifyBackTo"
+                        Click="ButtonBookModify_OnClick"
+                        Style="{StaticResource MaterialDesignPaperDarkButton}"
+                    Content="返回"
+                    Margin="10,5"
+                    Padding="10,5"
+                        Width="100px"
+                    HorizontalAlignment="Stretch"/>
+            </StackPanel>
+        </Grid>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical"
+                        Width="580px">
+                <TextBlock FontSize="25px"
+                           TextAlignment="Center"
+                           Padding="0, 20, 0, 10">
+                    修改图书信息
+                </TextBlock>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"
+                            Margin="0,0,0,10">
+                    <ComboBox x:Name="ComboBoxChoose"
+                              FontSize="15px"
+                              Margin="0,0,10,0"
+                              Width="150px"
+                              materialDesign:HintAssist.Hint="检索方式"
+                              materialDesign:HintAssist.Foreground="#190B00"
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBoxItem Content="书号"/>
+                        <ComboBoxItem Content="书名"/>
+                    </ComboBox>
+                    <TextBox x:Name="TextBoxCategory"
+                             Margin="0,0,10,0"
+                             FontSize="15px"
+                             Width="200px"
+                             materialDesign:HintAssist.Hint="查询内容"
+                             materialDesign:HintAssist.Foreground="#190B00"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             VerticalAlignment="Center" />
+                    <Button x:Name="ButtonSearchBook"
+                            Click="ButtonSearchBook_OnClick"
+                            Style="{StaticResource MaterialDesignPaperDarkButton}"
+                            Content="检索"
+                            FontSize="12px"
+                            Width="200px"
+                            VerticalAlignment="Bottom"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical"/>
+            <Border
+                Margin="100,0,100,20"
+                Padding="20,10"
+                CornerRadius="10">
+                <Border.Background>
+                    <SolidColorBrush Color="White" Opacity=".6"/>
+                </Border.Background>
+                <StackPanel  VerticalAlignment="Center" Orientation="Vertical">
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"
+                                Margin="0,10">
+                        <Border Background="Azure"
+                                Width="100px"
+                                Margin="0,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5">
+                            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="书名"/>
+                        </Border>
+                        <TextBox x:Name="TextBoxTitleModify"
+                                 IsEnabled="False"
+                                 LostFocus="TextBoxTitleModify_OnLostFocus"
+                                 VerticalContentAlignment="Bottom"
+                                 Margin="5,0,20,0"
+                                 Width="200px"/>
+                        <CheckBox x:Name="CheckBoxTitleModify"
+                                  Unchecked="CheckBoxTitleModify_OnUnchecked"
+                                  Checked="CheckBoxTitleModify_OnChecked"
+                            Content="M"
+                            Style="{StaticResource MaterialDesignActionDarkCheckBox}"
+                            ToolTip="勾选表示需要修改" />
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"
+                                Margin="0,0,0,10">
+                        <Border Background="Azure"
+                                Width="100px"
+                                Margin="0,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5">
+                            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="类别"/>
+                        </Border>
+                        <ComboBox x:Name="ComboBoxCategoryModify"
+                                  IsEnabled="False"
+                                  HorizontalContentAlignment="Stretch"
+                                  VerticalContentAlignment="Bottom"
+                                  Margin="5,0,20,0"
+                                  Width="200px"/>
+                        <CheckBox x:Name="CheckBoxCategoryModify"
+                                  Checked="CheckBoxCategoryModify_OnChecked"
+                                  Unchecked="CheckBoxCategoryModify_OnUnchecked"
+                            Content="M"
+                            Style="{StaticResource MaterialDesignActionDarkCheckBox}"
+                            ToolTip="勾选表示需要修改" />
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"
+                                Margin="0,0,0,10">
+                        <Border Background="Azure"
+                                Width="100px"
+                                Margin="0,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5"><Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="作者"/>
+                        </Border>
+                        <TextBox x:Name="TextBoxAuthorModify"
+                                 IsEnabled="False"
+                            VerticalContentAlignment="Bottom"
+                            Margin="5,0,20,0"
+                            Width="200px"/>
+                        <CheckBox x:Name="CheckBoxAuthorModify"
+                                  Checked="CheckBoxAuthorModify_OnChecked"
+                                  Unchecked="CheckBoxAuthorModify_OnUnchecked"
+                            Content="M"
+                            Style="{StaticResource MaterialDesignActionDarkCheckBox}"
+                            ToolTip="勾选表示需要修改" />
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal"
+                                Margin="0,0,0,10">
+                        <Border Background="Azure"
+                                Width="100px"
+                                Margin="0,0,5,0"
+                                Padding="0,5"
+                                CornerRadius="5">
+                            <Label VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="简介"/>
+                        </Border>
+                        <Label Width="200px" Margin="5,0,20,0"></Label>
+                        <CheckBox x:Name="CheckBoxDescriptionModify"
+                                  Checked="CheckBoxDescriptionModify_OnChecked"
+                                  Unchecked="CheckBoxDescriptionModify_OnUnchecked"
+                                  Content="M"
+                            Style="{StaticResource MaterialDesignActionDarkCheckBox}"
+                            ToolTip="勾选表示需要修改" />
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBox x:Name="TextBoxDescriptionModify"
+                                 IsEnabled="False"
+                                 TextWrapping="Wrap"
+                                 VerticalAlignment="Stretch"
+                                 Margin="0,0,0,10"
+                                 MinWidth="280"
+                                 AcceptsReturn="True"
+                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                 VerticalScrollBarVisibility="Auto"
+                                 SpellCheck.IsEnabled="True"
+                                 Height="50"/>
+                    </StackPanel>
+                    <Button x:Name="ButtonModifyBook"
+                            Click="ButtonModifyBook_OnClick"
+                            Style="{StaticResource MaterialDesignOutlinedDarkButton}"
+                            Content="修改图书信息"
+                            Width="150px"
+                            VerticalAlignment="Bottom"/>
+                </StackPanel>
+            </Border>
+        </DockPanel>
+    </Grid>
+</Window>

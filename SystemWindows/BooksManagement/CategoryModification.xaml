@@ -1,0 +1,147 @@
+﻿<Window x:Class="LibrariesManageSystem.SystemWindows.BooksManagement.CategoryModification"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="图书类别修改" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush
+            Opacity="0.9"
+            ImageSource="D:\MyWorkStation\C#JetBrains\LibrariesManageSystem\images\IMG20200112171947.jpg" Stretch="Fill" />
+    </Window.Background>
+    <Grid>
+        <Grid VerticalAlignment="Top" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Left">
+                <Button x:Name="ButtonModifyBackTo"
+                        Click="ButtonModifyBackTo_OnClick"
+                        Style="{StaticResource MaterialDesignPaperDarkButton}"
+                    Content="返回"
+                    Width="100px"
+                    Margin="10,5"
+                    Padding="10,5"
+                    HorizontalAlignment="Stretch"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"/>
+            </StackPanel>
+        </Grid>
+        <DockPanel>
+            <StackPanel DockPanel.Dock="Top"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical"
+                        Width="300px">
+                <TextBlock FontSize="25px"
+                           TextAlignment="Center"
+                           Padding="0, 50, 0, 10">
+                    修改图书类别
+                </TextBlock>
+            </StackPanel>
+            <StackPanel DockPanel.Dock="Bottom"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical">
+                <StackPanel HorizontalAlignment="Center"
+                                Orientation="Horizontal"
+                                Margin="0,0,0,15">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                </Grid>
+                                <ComboBox x:Name="ComboBoxChoseCategory"
+                                    Margin="15,0,15,1"
+                                    FontSize="15px"
+                                    Width="200px"
+                                    Foreground="Azure"
+                                    materialDesign:HintAssist.Hint="选择需要修改的图书类别"
+                                    materialDesign:HintAssist.Foreground="Azure"
+                                    ItemsSource="{Binding LongListToTestComboVirtualization}"
+                                    Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                                </ComboBox>
+                                <Label HorizontalAlignment="Right"
+                                       Width="200px"
+                                       Height="20px"
+                                       FontSize="10px"
+                                       Margin="0,0,16,0"
+                                       HorizontalContentAlignment="Right"></Label>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                <TextBox x:Name="TextBoxCategory"
+                                    Margin="15,0,15,1"
+                                    FontSize="15px"
+                                    Width="200px"
+                                    Foreground="Azure"
+                                    materialDesign:HintAssist.Hint="输入修改后的图书类别"
+                                    materialDesign:HintAssist.Foreground="Azure"
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                                    VerticalAlignment="Center" />
+                                <Label x:Name="LabelCategoryDescription" 
+                                    HorizontalAlignment="Right"
+                                       Width="200px"
+                                       Height="20px"
+                                       FontSize="10px"
+                                       Margin="0,0,16,0"
+                                       HorizontalContentAlignment="Right"></Label>
+                            </StackPanel>
+                            <StackPanel Grid.Column="2"
+                                        VerticalAlignment="Center"
+                                        Orientation="Vertical">
+                                <Button x:Name="ButtonModify"
+                                        Click="ButtonModify_OnClick"
+                                        Style="{StaticResource MaterialDesignPaperDarkButton}"
+                                    Content="修改"
+                                    Margin="0,0,10,0"
+                                    Padding="0,0,0,0"
+                                    Width="150px"
+                                    VerticalAlignment="Bottom"/>
+                                <Label HorizontalAlignment="Right"
+                                       Width="20px"
+                                       Height="20px"
+                                       FontSize="10px"
+                                       Margin="0,0,16,0"
+                                       HorizontalContentAlignment="Right"></Label>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+            </StackPanel>
+            <Border
+                Margin="100,0"
+                Padding="20,10"
+                CornerRadius="10">
+                <Border.Background>
+                    <SolidColorBrush Color="White" Opacity=".6"/>
+                </Border.Background>
+                <StackPanel>
+                    <Button x:Name="ButtonLoadCategory"
+                            Click="ButtonLoadCategory_OnClick"
+                            Style="{StaticResource MaterialDesignOutlinedDarkButton}"
+                            Content="加载图书类别"
+                            Foreground="Black"/>
+                    <ListView x:Name="ListViewCategory"
+                              MaxHeight="160"
+                              Margin="5"
+                              HorizontalContentAlignment="Center"
+                              IsEnabled="{Binding IsChecked, ElementName=EnableListBox}">
+                    </ListView>
+                </StackPanel>
+            </Border>
+        </DockPanel>
+    </Grid>
+</Window>
